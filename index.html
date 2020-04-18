@@ -1,32 +1,236 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coming Soon</title>
+    <title>Nishan Pandit</title>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap" rel="stylesheet">
     <style>
         body {
             overflow: hidden;
+            position: relative;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            font-family: 'Comfortaa', cursive;
         }
-        .comingsoon {
-            width: 100vw;
-            height: 95vh;
+        
+        .main__part {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-image: url(/nkdai.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            filter: blur(4px);
+            -webkit-filter: blur(4px);
+        }
+        
+        section.one-page {
+            position: absolute;
             display: flex;
             justify-content: center;
             align-items: center;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            /* text-align: center; */
         }
-
+        
         p {
-            font-size: 60px;
-            font-weight: bold;
+            float: left;
+            line-height: 50px;
+            font-size: 200%;
+            color: #888;
+        }
+        
+        .scroller {
+            height: 50px;
+            line-height: 50px;
+            float: left;
+            margin-left: 5px;
+            overflow: hidden;
+        }
+        
+        .scroller span {
+            display: block;
+            font-size: 200%;
+            color: #000;
+        }
+        
+        .scroller .inner {
+            -webkit-animation: scroll 10s 1 ease-out;
+            -moz-animation: scroll 10s 1 ease-out;
+            animation: scroll 10s 1 ease-out;
+            -webkit-animation-fill-mode: forwards;
+            -moz-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+        }
+        
+        .blue {
+            -webkit-animation: color 0.25s 1 linear;
+            -moz-animation: color 0.25s 1 linear;
+            animation: color 0.25s 1 linear;
+            -webkit-animation-delay: 8s;
+            -moz-animation-delay: 8s;
+            animation-delay: 8s;
+            -webkit-animation-fill-mode: forwards;
+            -moz-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+            /* text-decoration: none; */
+            color: transparent;
+        }
+        
+        .blueb {
+            color: transparent;
+            -webkit-animation: color 0.25s 1 linear;
+            -moz-animation: color 0.25s 1 linear;
+            animation: color 0.25s 1 linear;
+            -webkit-animation-delay: 8.25s;
+            -moz-animation-delay: 8.25s;
+            animation-delay: 8.25s;
+            -webkit-animation-fill-mode: forwards;
+            -moz-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+        }
+        
+        @-webkit-keyframes color {
+            0% {
+                color: transparent;
+            }
+            100% {
+                color: #000;
+            }
+        }
+        
+        @-moz-keyframes color {
+            0% {
+                color: transparent;
+            }
+            100% {
+                color: #000;
+            }
+        }
+        
+        @keyframes color {
+            0% {
+                color: transparent;
+            }
+            100% {
+                color: #000;
+            }
+        }
+        
+        @-webkit-keyframes scroll {
+            11% {
+                margin-top: 0px;
+            }
+            22% {
+                margin-top: 0px;
+            }
+            33% {
+                margin-top: -50px;
+            }
+            44% {
+                margin-top: -50px;
+            }
+            55% {
+                margin-top: -100px;
+            }
+            66% {
+                margin-top: -100px;
+            }
+            77% {
+                margin-top: -150px;
+            }
+            88% {
+                margin-top: -150px;
+            }
+            100% {
+                margin-top: -150px;
+            }
+        }
+        
+        @-moz-keyframes scroll {
+            11% {
+                margin-top: 0px;
+            }
+            22% {
+                margin-top: 0px;
+            }
+            33% {
+                margin-top: -50px;
+            }
+            44% {
+                margin-top: -50px;
+            }
+            55% {
+                margin-top: -100px;
+            }
+            66% {
+                margin-top: -100px;
+            }
+            77% {
+                margin-top: -150px;
+            }
+            88% {
+                margin-top: -150px;
+            }
+            100% {
+                margin-top: -150px;
+            }
+        }
+        
+        @keyframes scroll {
+            11% {
+                margin-top: 0px;
+            }
+            22% {
+                margin-top: 0px;
+            }
+            33% {
+                margin-top: -50px;
+            }
+            44% {
+                margin-top: -50px;
+            }
+            55% {
+                margin-top: -100px;
+            }
+            66% {
+                margin-top: -100px;
+            }
+            77% {
+                margin-top: -150px;
+            }
+            88% {
+                margin-top: -150px;
+            }
+            100% {
+                margin-top: -150px;
+            }
         }
     </style>
 </head>
+
 <body>
-    <div class="comingsoon">
-        <p>
-            Coming Soon!!
-        </p>
-    </div>
+    <main class="main__part">
+
+    </main>
+    <section class="one-page">
+        <div class="scroller">
+            <div class="inner">
+                <span>I am Nishan</span>
+                <span>A web developer</span>
+                <span>Add me in Facebook</span>
+                <span>Because I <a class="blue">share</a> <a class="blueb">memes.</a></span>
+            </div>
+        </div>
+    </section>
 </body>
+
 </html>
