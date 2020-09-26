@@ -24,25 +24,25 @@ img {
 }
 .main-heading {
   text-align: center;
-  margin-bottom: 7em;
+  margin-bottom: 70px;
 }
 .heading {
-  font-size: 6.8em;
+  font-size: 68px;
   font-weight: 300;
 }
 .heading__md {
-  font-size: 4.5em;
+  font-size: 45px;
   font-weight: 300;
 }
 
 .link-nav {
   text-align: center;
   text-transform: uppercase;
-  margin-bottom: 5em;
+  margin-bottom: 50px;
 }
 
 .link-nav p {
-  font-size: 2.5em;
+  font-size: 25px;
 }
 .links {
     display: flex;
@@ -51,7 +51,7 @@ img {
     position: relative;
 }
 .link-nav a {
-  font-size: 5em;
+  font-size: 50px;
 }
 .links span {
     display: block;
@@ -66,11 +66,11 @@ img {
   text-transform: uppercase;
 }
 .find-me p {
-  font-size: 5.5em;
+  font-size: 55px;
 }
 
 .find-me a {
-  font-size: 10em;
+  font-size: 100px;
 }
 
 .social-icons {
@@ -103,7 +103,7 @@ img {
     text-align: center;
     height: 13vh;
     position: relative;
-    text-indent: 15em;
+    text-indent: 150px;
     overflow: hidden;
     box-shadow:0 -5px 10px 0px rgba(0,0,0,0.75);;
 }
@@ -133,4 +133,92 @@ img {
 .buttons .next::after {
     border-width: 2px 2px 0 0;
     margin-left: -0.45vw;
+}
+
+@media only screen and (max-width:575px){
+  .section--1 {
+    flex-wrap: wrap;
+    overflow: hidden;
+  }
+  .wrapper-left {
+    flex-basis: 100%;
+    max-width: 100%;
+    order: 2;
+    align-items: flex-start;
+    margin-top: -60px;
+  }
+  .hero {
+    flex-basis: 100%;
+    max-width: 100%;
+    background-image: url(./../img/home/hero.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    height: 35vh;
+    margin-top: 60px;
+  }
+  .hero img {
+    display: none;
+  }
+  .main-heading {
+    position: fixed;
+    top: 15px;
+    left: 0;
+    width: 100%;
+  }
+  .main-heading .heading {
+    font-size: 16px;
+    line-height: 1.8;
+  }
+  .main-heading .heading__md {
+    font-size: 12px;
+  }
+  .link-nav {
+    margin-bottom: 15px;
+  }
+  .link-nav p {
+    font-size: 14px;
+  }
+  .link-nav a {
+    font-size: 20px;
+  }
+  .find-me p{
+    font-size: 22px;
+  }
+  .find-me a {
+    font-size: 30px;
+  }
+  .links img {
+    width: 20px;
+  }
+  .social-icons {
+    max-width: 100%;
+    display: flex;
+    top: initial;
+    bottom: 0;
+    right: initial;
+    left: 0;
+  }
+
+  .social-links {
+    max-height: 65px;
+  }
+
+  .buttons {
+    right: 0;
+    bottom: initial;
+    top: 0;
+    left: 0;
+    justify-content: space-between;
+  }
+
+  .buttons a {
+    width: 60px;
+    height: 60px;
+    background-color: #aaa !important;
+  }
+
+  .buttons a::after {
+    width: 15px;
+    height: 15px;
+  }
 }

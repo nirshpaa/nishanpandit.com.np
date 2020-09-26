@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
             translateY: [20, 0]
         }, "-=900")
         .add({
-            targets: '.hero img',
+            targets: '.hero',
             opacity: [0, 1],
             translateY: [-90, 0],
         }, "-=800")
