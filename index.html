@@ -5,248 +5,75 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nishan Pandit</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <!-- <link rel="manifest" href="/site.webmanifest"> -->
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+    <!-- FAVICONS -->
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="./assets/favicon/site.webmanifest">
+    <link rel="mask-icon" href="./assets/favicon/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#00aba9">
     <meta name="theme-color" content="#cccccc">
     <link rel='manifest' href='/manifest.json'>
-    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            overflow: hidden;
-            position: relative;
-            height: 100vh;
-            margin: 0;
-            padding: 0;
-            font-family: 'Comfortaa', cursive;
-        }
-        
-        .main__part {
-            position: absolute;
-            top: 0;
-            z-index: -1;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background-image: url(/nkdai.jpg);
-            background-repeat: no-repeat;
-            background-size: cover;
-            filter: blur(4px);
-            -webkit-filter: blur(4px);
-        }
-        
-        section.one-page {
-            position: absolute;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            /* text-align: center; */
-        }
-        
-        p {
-            float: left;
-            line-height: 50px;
-            font-size: 200%;
-            color: #888;
-        }
-        
-        .scroller {
-            height: 50px;
-            line-height: 50px;
-            float: left;
-            margin-left: 5px;
-            overflow: hidden;
-        }
-        
-        .scroller span {
-            display: block;
-            font-size: 200%;
-            color: #000;
-        }
-        
-        .scroller .inner {
-            -webkit-animation: scroll 10s 1 ease-out;
-            -moz-animation: scroll 10s 1 ease-out;
-            animation: scroll 10s 1 ease-out;
-            -webkit-animation-fill-mode: forwards;
-            -moz-animation-fill-mode: forwards;
-            animation-fill-mode: forwards;
-        }
-        
-        .blue {
-            -webkit-animation: color 0.25s 1 linear;
-            -moz-animation: color 0.25s 1 linear;
-            animation: color 0.25s 1 linear;
-            -webkit-animation-delay: 8s;
-            -moz-animation-delay: 8s;
-            animation-delay: 8s;
-            -webkit-animation-fill-mode: forwards;
-            -moz-animation-fill-mode: forwards;
-            animation-fill-mode: forwards;
-            /* text-decoration: none; */
-            color: transparent;
-        }
-        
-        .blueb {
-            color: transparent;
-            -webkit-animation: color 0.25s 1 linear;
-            -moz-animation: color 0.25s 1 linear;
-            animation: color 0.25s 1 linear;
-            -webkit-animation-delay: 8.25s;
-            -moz-animation-delay: 8.25s;
-            animation-delay: 8.25s;
-            -webkit-animation-fill-mode: forwards;
-            -moz-animation-fill-mode: forwards;
-            animation-fill-mode: forwards;
-        }
-        
-        @-webkit-keyframes color {
-            0% {
-                color: transparent;
-            }
-            100% {
-                color: #000;
-            }
-        }
-        
-        @-moz-keyframes color {
-            0% {
-                color: transparent;
-            }
-            100% {
-                color: #000;
-            }
-        }
-        
-        @keyframes color {
-            0% {
-                color: transparent;
-            }
-            100% {
-                color: #000;
-            }
-        }
-        
-        @-webkit-keyframes scroll {
-            11% {
-                margin-top: 0px;
-            }
-            22% {
-                margin-top: 0px;
-            }
-            33% {
-                margin-top: -50px;
-            }
-            44% {
-                margin-top: -50px;
-            }
-            55% {
-                margin-top: -100px;
-            }
-            66% {
-                margin-top: -100px;
-            }
-            77% {
-                margin-top: -150px;
-            }
-            88% {
-                margin-top: -150px;
-            }
-            100% {
-                margin-top: -150px;
-            }
-        }
-        
-        @-moz-keyframes scroll {
-            11% {
-                margin-top: 0px;
-            }
-            22% {
-                margin-top: 0px;
-            }
-            33% {
-                margin-top: -50px;
-            }
-            44% {
-                margin-top: -50px;
-            }
-            55% {
-                margin-top: -100px;
-            }
-            66% {
-                margin-top: -100px;
-            }
-            77% {
-                margin-top: -150px;
-            }
-            88% {
-                margin-top: -150px;
-            }
-            100% {
-                margin-top: -150px;
-            }
-        }
-        
-        @keyframes scroll {
-            11% {
-                margin-top: 0px;
-            }
-            22% {
-                margin-top: 0px;
-            }
-            33% {
-                margin-top: -50px;
-            }
-            44% {
-                margin-top: -50px;
-            }
-            55% {
-                margin-top: -100px;
-            }
-            66% {
-                margin-top: -100px;
-            }
-            77% {
-                margin-top: -150px;
-            }
-            88% {
-                margin-top: -150px;
-            }
-            100% {
-                margin-top: -150px;
-            }
-        }
-    </style>
+
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- STYLESHEETS -->
+    <link rel="stylesheet" href="./assets/css/reset.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
 <body>
-    <main class="main__part">
+    <section class="section section--1">
+        <div class="wrapper-left">
+            <div class="content">
+                <div class="main-heading">
+                    <h1 class="heading">FRONT-END DEVELOPER</h1>
+                    <h2 class="heading__md">BORN IN LATE 90's</h2>
+                </div>
 
-    </main>
-    <section class="one-page">
-        <div class="scroller">
-            <div class="inner">
-                <span>I am Nishan</span>
-                <span>A web developer</span>
-                <span>Add me in Facebook</span>
-                <span>Because I <a class="blue">share</a> <a class="blueb">memes.</a></span>
+                <div class="link-nav about-me">
+                    <p>Know More</p>
+                    <a class="links"><span>About Me</span><img src="./assets/img/icons/about-me.png" alt=""></a>
+                </div>
+                <div class="link-nav skills">
+                    <p>My</p>
+                    <a class="links"><span>Skills</span><img src="./assets/img/icons/skills.png" alt=""></a>
+                </div>
+                <div class="link-nav experience">
+                    <p>My</p>
+                    <a class="links"><span>experience</span><img src="./assets/img/icons/experience.png" alt=""></a>
+                </div>
+                <div class="find-me">
+                    <p>and if you want then</p>
+                    <a class="links"><span>Find Me</span><img src="./assets/img/icons/find-me.png" alt=""></a>
+                </div>
             </div>
+        </div>
+        <div class="hero">
+            <img src="./assets/img/home/hero.jpg" alt="">
         </div>
     </section>
 
-    <script src="manup.js"></script>
-    <script type="module">
-        import 'https://cdn.jsdelivr.net/npm/@pwabuilder/pwaupdate'; const el = document.createElement('pwa-update'); document.body.appendChild(el);
-    </script>
-    <script>
-    </script>
+    <div class="social-icons">
+        <a href="#" class="social-links"><img src="./assets/img/icons/github.jpg" alt=""></a>
+        <a href="#" class="social-links"><img src="./assets/img/icons/linkedin.jpg" alt=""></a>
+        <a href="#" class="social-links"><img src="./assets/img/icons/facebook.jpg" alt=""></a>
+        <a href="#" class="social-links"><img src="./assets/img/icons/messenger.jpg" alt=""></a>
+        <a href="#" class="social-links"><img src="./assets/img/icons/twitter.jpg" alt=""></a>
+        <a href="#" class="social-links"><img src="./assets/img/icons/youtube.jpg" alt=""></a>
+        <a href="#" class="social-links"><img src="./assets/img/icons/instagram.jpg" alt=""></a>
+    </div>
+
+    <div class="buttons">
+        <a href="#" class="previous">Previous</a>
+        <a href="#" class="next">Next</a>
+    </div>
+
+    <!-- JAVASCRIPTS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.0/anime.min.js" integrity="sha512-LfB+BcvR3zBt7ebVskhSWiSbEUiG3p5EcCprkieldsKhBeR6wpnLi0VpWC2GNgVGWP2n/skO8Bx2oKNjUhXCkw==" crossorigin="anonymous"></script>
+    <script src="./assets/js/main.js"></script>
 </body>
 
 </html>
