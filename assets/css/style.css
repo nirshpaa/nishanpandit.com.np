@@ -1,3 +1,7 @@
+body {
+  height: 100vh;
+  overflow: hidden;
+}
 img {
   max-width: 100%;
   height: auto;
@@ -21,6 +25,10 @@ img {
   overflow: hidden;
   flex-basis: 35%;
   max-width: 35%;
+}
+.hero img {
+  height: 100vh;
+  object-fit: cover;
 }
 .main-heading {
   text-align: center;
@@ -78,6 +86,10 @@ img {
   top: 0;
   right: 0;
   max-width: 5vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 85vh;
 }
 .social-links {
   display: block;
@@ -258,6 +270,10 @@ img {
 .navbar {
   border-left: 10px solid #fff;
   padding: 10px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .mynameNav {

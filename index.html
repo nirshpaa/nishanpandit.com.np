@@ -17,7 +17,8 @@
     <link rel='manifest' href='/manifest.json'>
 
     <!-- GOOGLE FONTS -->
-    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
 
     <!-- STYLESHEETS -->
     <link rel="stylesheet" href="./assets/css/reset.css">
@@ -35,11 +36,11 @@
 
                 <div class="link-nav about-me">
                     <p>Know More</p>
-                    <a class="links"><span>About Me</span><img src="./assets/img/icons/about-me.png" alt=""></a>
+                    <a href="#" id="about" class="links"><span>About Me</span><img src="./assets/img/icons/about-me.png" alt=""></a>
                 </div>
                 <div class="link-nav skills">
                     <p>My</p>
-                    <a class="links"><span>Skills</span><img src="./assets/img/icons/skills.png" alt=""></a>
+                    <a href="#" id="skills" class="links"><span>Skills</span><img src="./assets/img/icons/skills.png" alt=""></a>
                 </div>
                 <div class="link-nav experience">
                     <p>My</p>
@@ -52,28 +53,36 @@
             </div>
         </div>
         <div class="hero">
-            <img src="./assets/img/home/hero.jpg" alt="">
+            <img src="./assets/img/about/about-hero.jpg" alt="">
         </div>
     </section>
 
-    <div class="social-icons">
-        <a href="#" class="social-links"><img src="./assets/img/icons/github.jpg" alt=""></a>
-        <a href="#" class="social-links"><img src="./assets/img/icons/linkedin.jpg" alt=""></a>
-        <a href="#" class="social-links"><img src="./assets/img/icons/facebook.jpg" alt=""></a>
-        <a href="#" class="social-links"><img src="./assets/img/icons/messenger.jpg" alt=""></a>
-        <a href="#" class="social-links"><img src="./assets/img/icons/twitter.jpg" alt=""></a>
-        <a href="#" class="social-links"><img src="./assets/img/icons/youtube.jpg" alt=""></a>
-        <a href="#" class="social-links"><img src="./assets/img/icons/instagram.jpg" alt=""></a>
+
+    <div class="sidebar">
+        <div class="social-icons">
+            <a href="#" class="social-links"><img src="./assets/img/icons/github.jpg" alt=""></a>
+            <a href="#" class="social-links"><img src="./assets/img/icons/linkedin.jpg" alt=""></a>
+            <a href="#" class="social-links"><img src="./assets/img/icons/facebook.jpg" alt=""></a>
+            <a href="#" class="social-links"><img src="./assets/img/icons/messenger.jpg" alt=""></a>
+            <a href="#" class="social-links"><img src="./assets/img/icons/twitter.jpg" alt=""></a>
+            <a href="#" class="social-links"><img src="./assets/img/icons/youtube.jpg" alt=""></a>
+            <a href="#" class="social-links"><img src="./assets/img/icons/instagram.jpg" alt=""></a>
+        </div>
+
+        <div class="buttons">
+            <a href="#" class="previous">Previous</a>
+            <a href="#" class="next">Next</a>
+        </div>
     </div>
 
-    <div class="buttons">
-        <a href="#" class="previous">Previous</a>
-        <a href="#" class="next">Next</a>
-    </div>
 
     <!-- JAVASCRIPTS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.0/anime.min.js" integrity="sha512-LfB+BcvR3zBt7ebVskhSWiSbEUiG3p5EcCprkieldsKhBeR6wpnLi0VpWC2GNgVGWP2n/skO8Bx2oKNjUhXCkw==" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.0/anime.min.js"
+        integrity="sha512-LfB+BcvR3zBt7ebVskhSWiSbEUiG3p5EcCprkieldsKhBeR6wpnLi0VpWC2GNgVGWP2n/skO8Bx2oKNjUhXCkw=="
+        crossorigin="anonymous"></script>
     <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/fetch.js"></script>
 </body>
 
 </html>
