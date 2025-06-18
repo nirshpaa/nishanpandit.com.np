@@ -1,8 +1,3 @@
-Here's a `README.md` file tailored for your **nishanportfolio** project, based on the provided `package.json` and inferred tech stack:
-
----
-
-````markdown
 # Nishan Pandit – Portfolio Website
 
 This is the official portfolio website of Nishan Pandit, built using modern frontend tools like **React**, **Vite**, **TailwindCSS**, and **Radix UI**. The site showcases Nishan's work, skills, and contact information, designed with a focus on performance, accessibility, and interactivity.
