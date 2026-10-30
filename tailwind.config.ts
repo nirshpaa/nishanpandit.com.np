@@ -18,6 +18,11 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				serif: ['"Instrument Serif"', 'Georgia', 'serif'],
+				sans: ['"Geist"', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+				mono: ['"Geist Mono"', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',

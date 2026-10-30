@@ -6,25 +6,23 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import { useIPCountryClass } from "./hooks/use-ip-country";
+import IPCountryClass from "./components/IPCountryClass";
 
 const queryClient = new QueryClient();
 
 const App = () => {
-  const { loading, error } = useIPCountryClass();
-
-  if (loading) {
-    return <div className="flex items-center justify-center h-screen" style={{fontSize: "calc(4em + 1vmin)",}}>Loading...</div>;
-  }
-
-  if (error) {
-    return <div className="flex items-center justify-center h-screen text-red-500" style={{fontSize: "calc(4em + 1vmin)",}}>Error: {error}</div>;
-  }
+  const { countryTheme, setCountryByCodeOrName, allThemes } = useIPCountryClass();
 
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />
         <Sonner />
+        <IPCountryClass
+          countryTheme={countryTheme}
+          onSelectCountry={setCountryByCodeOrName}
+          allThemes={allThemes}
+        />
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />

@@ -1,124 +1,62 @@
-import React, { useEffect, useRef, useState } from "react";
-import DarkModeToggle from "react-dark-mode-toggle";
+import React from "react";
+import { ArrowUp } from "lucide-react";
+import { useLenis } from "@/hooks/use-lenis";
+import { useScrollReveal } from "@/hooks/use-in-view";
 import AboutMe from "./AboutMe";
-import Summary from "./Summary";
-import Skills from "./Skills";
 import WorkHistory from "./WorkHistory";
-import Education from "./Education";
-import { motion } from "framer-motion";
-import styles from "./Resume.module.css";
 import Portfolio from "./Portfolio";
+import Skills from "./Skills";
+import Education from "./Education";
+import Contact from "./Contact";
+import styles from "./Resume.module.css";
 
-const sections = [
-  <AboutMe />,
-  <Summary sectionTitle={styles.sectionTitle} />,
-  <Skills sectionTitle={styles.sectionTitle} />,
-  <WorkHistory sectionTitle={styles.sectionTitle} />,
-  <Education sectionTitle={styles.sectionTitle} />,
-  <Portfolio sectionTitle={styles.sectionTitle} />,
-];
-
-const Resume = () => {
-  const [isDarkMode, setIsDarkMode] = useState(false);
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const lastScrollTime = useRef(0);
-
-  useEffect(() => {
-    document.documentElement.setAttribute(
-      "data-theme",
-      isDarkMode ? "dark" : "light"
-    );
-  }, [isDarkMode]);
-
-  const scrollToIndex = (index: number) => {
-    if (containerRef.current) {
-      containerRef.current.scrollTo({
-        top: index * window.innerHeight,
-        behavior: "smooth",
-      });
-    }
-  };
-
-  const handleScroll = (delta: number) => {
-    const now = Date.now();
-    const timeDiff = now - lastScrollTime.current;
-
-    // Only scroll if enough time has passed AND scroll intent is clear
-    if (timeDiff > 800 && Math.abs(delta) > 20) {
-      lastScrollTime.current = now;
-
-      if (delta > 0 && currentIndex < sections.length - 1) {
-        const next = currentIndex + 1;
-        setCurrentIndex(next);
-        scrollToIndex(next);
-      } else if (delta < 0 && currentIndex > 0) {
-        const next = currentIndex - 1;
-        setCurrentIndex(next);
-        scrollToIndex(next);
-      }
-    }
-  };
-
-  useEffect(() => {
-    const onWheel = (e: WheelEvent) => {
-      e.preventDefault();
-      handleScroll(e.deltaY);
-    };
-
-    const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "ArrowDown") {
-        handleScroll(100); // simulate downward scroll
-      } else if (e.key === "ArrowUp") {
-        handleScroll(-100); // simulate upward scroll
-      }
-    };
-
-    const container = containerRef.current;
-    if (container) container.addEventListener("wheel", onWheel, { passive: false });
-    window.addEventListener("keydown", onKeyDown);
-
-    return () => {
-      container?.removeEventListener("wheel", onWheel);
-      window.removeEventListener("keydown", onKeyDown);
-    };
-  }, [currentIndex]);
+const Resume: React.FC = () => {
+  useLenis();
+  useScrollReveal();
 
   return (
-    <>
-      {/* <div style={{ position: "fixed", top: 20, right: 20, zIndex: 1000 }}>
-        <DarkModeToggle
-          onChange={setIsDarkMode}
-          checked={isDarkMode}
-          size={60}
-        />
-      </div> */}
-
-      <motion.div
-        ref={containerRef}
-        className={styles.content}
-        // className="texturedBg"
-        initial={{opacity: 0}} animate={{opacity: 1}} transition={{ type: "spring"}}
+    <div className={styles.pageWrapper}>
+      <main
+        id="main-content"
+        tabIndex={-1}
+        className={styles.mainContainer}
       >
-        {sections.map((Component, i) => (
-          <div
-            key={i}
-            style={{
-              height: "100vh",
-              scrollSnapAlign: "start",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              flexDirection: "column",
-              position: "relative",
-              // padding: "calc(10em + 1vmin)",
-            }}
-          >
-            {Component}
+        <AboutMe />
+        <WorkHistory />
+        <Portfolio />
+        <Skills />
+        <Education />
+        <Contact />
+      </main>
+
+      <footer className="relative z-[2] border-t border-white/[0.08] bg-[#0b0b0f] py-8 px-[clamp(1.25rem,4vw,2.5rem)] text-xs text-[hsl(var(--muted-foreground))]">
+        <div className="w-[min(100%,62rem)] mx-auto flex flex-wrap items-center justify-between gap-4">
+          <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3">
+            <span className="font-serif text-base text-[hsl(var(--foreground))]">
+              Nishan <em>Pandit</em>
+            </span>
+            <span aria-hidden="true" className="hidden sm:inline text-white/20">
+              ·
+            </span>
+            <p className="m-0 font-mono text-[0.72rem] text-[hsl(var(--muted-foreground))]">
+              © {new Date().getFullYear()} · Full-Stack WordPress Developer · Nashik, India
+            </p>
           </div>
-        ))}
-      </motion.div>
-    </>
+
+          <a
+            href="#about"
+            className="inline-flex items-center gap-1.5 font-mono text-xs px-3 py-1.5 rounded-lg border border-white/[0.1] bg-white/[0.03] hover:border-[hsl(var(--accent))] text-[hsl(var(--foreground))] no-underline"
+          >
+            <ArrowUp
+              className="w-3.5 h-3.5 text-[hsl(var(--accent))]"
+              strokeWidth={1.5}
+              aria-hidden="true"
+            />
+            <span>Back to top</span>
+          </a>
+        </div>
+      </footer>
+    </div>
   );
 };
 

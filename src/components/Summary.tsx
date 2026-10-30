@@ -1,70 +1,106 @@
-// import { Circle } from "lucide-react";
-import { motion } from "framer-motion";
+import React from "react";
+import { Code2, ShieldCheck, Terminal, Workflow } from "lucide-react";
+import styles from "./Resume.module.css";
 
-type SectionProps = {
-  sectionTitle?: string;
+const handleSpotlightMove = (e: React.PointerEvent<HTMLElement>) => {
+  const rect = e.currentTarget.getBoundingClientRect();
+  e.currentTarget.style.setProperty("--mouse-x", `${e.clientX - rect.left}px`);
+  e.currentTarget.style.setProperty("--mouse-y", `${e.clientY - rect.top}px`);
 };
 
-const styles = {
-  header: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    gap: "1rem",
-    marginBottom: "1rem",
-    background: "hsl(var(--primary))",
-  } as React.CSSProperties,
-  heading: {
-    fontSize: "calc(2.5em + 1vmin)",
-    color: "hsl(var(--accent))",
-    fontFamily: `"Fraunces", serif`,
-    fontOpticalSizing: "auto",
-    fontStyle: "normal",
-    fontWeight: "900",
-    fontVariationSettings: `"SOFT" 100,
-    "WONK" 1`,
-  } as React.CSSProperties,
-  content: {
-    marginBottom: "2rem",
-    fontSize: "calc(1.5em + 1vmin)",
-    lineHeight: "1.75",
-    color: "hsl(var(--accent))",
-    textAlign: "center",
-  } as React.CSSProperties,
-};
+const highlights = [
+  {
+    metric: "6+ Years",
+    title: "Production Experience",
+    detail:
+      "Delivering enterprise-grade WordPress solutions for international clients across distributed teams.",
+    icon: Terminal,
+  },
+  {
+    metric: "React & PHP",
+    title: "Custom Architecture",
+    detail:
+      "Bespoke themes, plugins, ACF Pro schemas, Elementor Pro widgets, and React Gutenberg blocks.",
+    icon: Code2,
+  },
+  {
+    metric: "Commerce",
+    title: "WooCommerce & APIs",
+    detail:
+      "Custom WooCommerce extensions, Stripe payment flows, and resilient REST/webhook integrations.",
+    icon: Workflow,
+  },
+  {
+    metric: "Scale & Ops",
+    title: "Performance & Security",
+    detail:
+      "Kinsta, Plesk, and ManageWP fleet operations, Core Web Vitals optimization, and security audits.",
+    icon: ShieldCheck,
+  },
+];
 
-const Summary = ({ sectionTitle }: SectionProps) => {
+const Summary = () => {
   return (
-    <>
-      <div className={sectionTitle}>
-        <div
-          style={{
-            textAlign: "center",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
-        >
-          {/* <Circle
-            size={50}
-            fill="hsl(var(--secondary))"
-            color="hsl(var(--accent))"
-          /> */}
-          <h2 style={styles.heading}>PROFESSIONAL SUMMARY</h2>
+    <section
+      id="summary"
+      aria-labelledby="summary-heading"
+      className={styles.sectionCard}
+      data-reveal
+    >
+      <div className={styles.sectionHeader}>
+        <div className={styles.sectionHeadingGroup}>
+          <span className={styles.sectionEyebrow}>02 // Executive Summary</span>
+          <h2 id="summary-heading" className={styles.sectionHeading}>
+            Engineering <em>philosophy</em> &amp; scope.
+          </h2>
         </div>
+        <span className={styles.sectionBadge}>Professional Profile</span>
       </div>
-      <motion.p
-        style={styles.content}
-        initial={{ y: "-100%", opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
-        transition={{ type: "spring", duration: 2 }}
+
+      <blockquote className="m-0 mb-8 pl-5 border-l-2 border-[hsl(var(--accent))] max-w-[68ch] text-[clamp(1rem,0.96rem+0.3vw,1.15rem)] leading-[1.75] text-[hsl(var(--foreground))]">
+        Full-Stack WordPress Developer with 6+ years of professional experience
+        delivering custom WordPress solutions for international clients.
+        Specialized in custom themes, plugins, Gutenberg development (React),
+        WooCommerce extensions, API integrations, performance optimization, and
+        website security. Experienced in working with distributed teams,
+        managing deployments, and maintaining scalable web applications. Strong
+        problem-solving skills, mentoring experience, and a commitment to clean,
+        maintainable code and modern development practices.
+      </blockquote>
+
+      <ul
+        role="list"
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 list-none m-0 p-0"
       >
-        Full Stack WordPress Developer with 6+ years of experience in developing
-        and maintaining custom WordPress themes and plugins. Proficient in PHP,
-        JavaScript, and modern web technologies. Demonstrated ability to
-        transform complex requirements into scalable solutions.
-      </motion.p>
-    </>
+        {highlights.map((item) => {
+          const Icon = item.icon;
+          return (
+            <li
+              key={item.title}
+              className={styles.bentoSubCard}
+              onPointerMove={handleSpotlightMove}
+            >
+              <div className="flex items-center justify-between gap-2 mb-3">
+                <span className="font-serif italic text-2xl text-[hsl(var(--accent))]">
+                  {item.metric}
+                </span>
+                <Icon
+                  className="w-4 h-4 text-[hsl(var(--muted-foreground))]"
+                  strokeWidth={1.5}
+                  aria-hidden="true"
+                />
+              </div>
+              <h3 className="text-sm font-semibold text-[hsl(var(--foreground))] m-0 mb-1.5">
+                {item.title}
+              </h3>
+              <p className="m-0 text-xs leading-[1.6] text-[hsl(var(--muted-foreground))]">
+                {item.detail}
+              </p>
+            </li>
+          );
+        })}
+      </ul>
+    </section>
   );
 };
 

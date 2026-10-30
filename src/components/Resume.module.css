@@ -1,45 +1,204 @@
-.sectionTitle {
-  position: absolute;
-  left: calc(-10em + 1vmin);
-  top: 50%;
-  color: hsl(var(--ring));
-  font-size: calc(0.4em + 1vmin);
-  font-weight: 700;
+.pageWrapper {
+  position: relative;
+  isolation: isolate;
+  min-block-size: 100dvh;
+  inline-size: 100%;
+  background-color: #0b0b0f;
+  background-image: radial-gradient(
+    800px circle at 50% 0%,
+    color-mix(in oklab, hsl(var(--accent)) 8%, transparent) 0%,
+    transparent 65%
+  );
+}
+
+/* Faint tactile grain overlay across the off-black #0b0b0f canvas */
+.pageWrapper::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.022;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 160px 160px;
+}
+
+.mainContainer {
+  position: relative;
+  z-index: 2;
+  inline-size: min(100%, 62rem);
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 4vw, 2.5rem);
+  padding-block-start: clamp(2rem, 5vw, 3.75rem);
+  padding-block-end: clamp(3rem, 6vw, 5rem);
   display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Open Developer Portfolio Section (No heavy outer box; separated by 1px hairline) */
+.sectionCard {
+  position: relative;
+  padding-block: clamp(2.5rem, 5vw, 3.75rem);
+  border-block-start: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.sectionCard:first-of-type {
+  padding-block-start: 0.5rem;
+  border-block-start: none;
+}
+
+.sectionHeader {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-block-end: 1.75rem;
+}
+
+.sectionHeadingGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.sectionEyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: hsl(var(--accent));
+}
+
+.sectionHeading {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: clamp(1.85rem, 1.5rem + 1.5vw, 2.5rem);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: hsl(var(--foreground));
+  text-wrap: balance;
+}
+
+.sectionHeading em {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  color: hsl(var(--accent));
+}
+
+.sectionBadge {
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.28rem 0.65rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: hsl(var(--muted-foreground));
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+}
+
+/* Signature Interaction: Cursor-Following Spotlight Glow on Cards */
+.bentoSubCard {
+  position: relative;
+  isolation: isolate;
+  padding: clamp(1.25rem, 2.5vw, 1.6rem);
+  border-radius: 0.75rem;
+  background-color: #111116;
+  background-image: radial-gradient(
+    420px circle at var(--mouse-x, 50%) var(--mouse-y, -200px),
+    color-mix(in oklab, hsl(var(--accent)) 10%, transparent) 0%,
+    transparent 65%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition:
+    border-color 240ms cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 240ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.bentoSubCard:hover {
+  border-color: color-mix(in oklab, hsl(var(--accent)) 35%, rgba(255, 255, 255, 0.14));
+  background-color: #14141b;
+}
+
+.pillList {
+  display: flex;
+  flex-wrap: wrap;
+  flex-wrap: balance;
+  gap: 0.45rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.skillPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.68rem;
+  border-radius: 0.375rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: hsl(var(--foreground));
+  transition: border-color 200ms ease;
+}
+
+.skillPill:hover {
+  border-color: color-mix(in oklab, hsl(var(--accent)) 45%, rgba(255, 255, 255, 0.12));
+}
+
+.actionPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.55rem 1rem;
+  border-radius: 0.5rem;
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: hsl(var(--foreground));
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition:
+    background-color 200ms ease,
+    border-color 200ms ease,
+    color 200ms ease;
+}
+
+.actionPill:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: color-mix(in oklab, hsl(var(--accent)) 55%, rgba(255, 255, 255, 0.2));
+  color: hsl(var(--foreground));
+}
+
+.primaryCta {
+  --badge-bg: hsl(var(--accent));
+  display: inline-flex;
+  align-items: center;
   gap: 0.5rem;
-  text-align: center;
-  transform: rotateZ(-90deg) translateX(-50%);
-  opacity: 0.7;
-  mix-blend-mode: soft-light;
-  transform-origin: left;
-  margin-bottom: 1rem;
+  padding: 0.6rem 1.15rem;
+  border-radius: 0.5rem;
+  background-color: hsl(var(--accent));
+  color: #0b0b0f;
+  border: 1px solid color-mix(in oklab, hsl(var(--accent)) 85%, #ffffff);
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: filter 200ms ease;
 }
 
-.content {
-  height: 100vh;
-  overflow: hidden;
-  scroll-snap-type: y mandatory;
-  scroll-behavior: smooth;
-  background-color: hsl(var(--primary));
-  /* background: radial-gradient(125% 125% at 50% 0%, rgb(33, 33, 33) 50%, rgb(255, 190, 0)); */
-  padding-left: calc(10em + 1vmin);
-  padding-right: calc(10em + 1vmin);
-}
-
-/* Mobile override */
-@media (max-width: 768px) {
-  .sectionTitle {
-    position: static;
-    transform: none;
-    margin: 1rem 0;
-    text-align: center;
-    justify-content: center;
-  }
-
-  .content {
-    padding-left: calc(1em + 1vmin);
-    padding-right: calc(1em + 1vmin);
-  }
+.primaryCta:hover {
+  color: #0b0b0f;
+  filter: brightness(1.06);
 }
